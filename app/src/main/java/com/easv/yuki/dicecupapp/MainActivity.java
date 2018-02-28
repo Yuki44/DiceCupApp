@@ -5,24 +5,25 @@ import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final Random RANDOM = new Random();
     public Vibrator vibrator;
-    ArrayList<Integer> diceList = new ArrayList<Integer>();
+    ArrayList<BERoll> diceList = new ArrayList<>();
     private Button rollDiceBtn;
     private ImageView dice1, dice2;
+    private Date currentTime;
 
     private static int randomDiceValue() {
         //Number from 1-6
@@ -89,30 +90,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void RandomDice(Animation animation, Animation anim1, Animation anim2) {
-        int diceNumber = randomDiceValue();
+        int diceNumber1 = randomDiceValue();
+        int diceNumber2 = randomDiceValue();
+
 
         //Drawable is where images is located. defPackage is for MainActivity.
-        int newRandomDice = getResources().getIdentifier("dice" + diceNumber, "drawable", "com.easv.yuki.dicecupapp");
+        int newRandomDice1 = getResources().getIdentifier("dice" + diceNumber1, "drawable", "com.easv.yuki.dicecupapp");
+        int newRandomDice2 = getResources().getIdentifier("dice" + diceNumber2, "drawable", "com.easv.yuki.dicecupapp");
 
         //Sets a "new" dice if the dice is the same.
         if (animation == anim1) {
-            dice1.setImageResource(newRandomDice);
+            dice1.setImageResource(newRandomDice1);
         } else if (animation == anim2) {
-            dice2.setImageResource(newRandomDice);
+            dice2.setImageResource(newRandomDice2);
         }
 
-        addDiceToSpinner(diceNumber);
+        int[] a = {diceNumber1, diceNumber2};
+        diceList.add(new BERoll(Calendar.getInstance().getTime(), a));
 
     }
 
-    public void addDiceToSpinner(int diceNumber) {
-        diceList.add(diceNumber);
-        //Sort by newest to be on top.
-//        Collections.reverse(diceList);
-        Log.d("Catching", diceList + "TEST");
-
-        //Adds the new roll to the spinner.
-        ArrayAdapter<Integer> adapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_item, diceList);
-        // mSpinner.setAdapter(adapter);
-    }
 }
