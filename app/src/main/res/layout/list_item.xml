@@ -11,5 +11,5 @@
         android:fontFamily="@font/nunito_semibold"
         android:text="Roll Result"
         android:textColor="#000000"
-        android:textSize="18sp" />
+        android:textSize="24sp" />
 </RelativeLayout>
