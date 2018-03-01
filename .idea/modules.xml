@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DiceCupApp.iml" filepath="$PROJECT_DIR$/DiceCupApp.iml" />
+      <module fileurl="file://D:\Documents\Android Studio Projects\DICES\DiceCupApp\DiceCupApp.iml" filepath="D:\Documents\Android Studio Projects\DICES\DiceCupApp\DiceCupApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://D:\Documents\Android Studio Projects\DICES\DiceCupApp\app\app.iml" filepath="D:\Documents\Android Studio Projects\DICES\DiceCupApp\app\app.iml" />
     </modules>
   </component>
 </project>
