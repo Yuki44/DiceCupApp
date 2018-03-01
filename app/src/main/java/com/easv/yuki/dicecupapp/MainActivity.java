@@ -91,6 +91,8 @@ public class MainActivity extends AppCompatActivity {
         //Runs the animation.
         dice1.startAnimation(anim1);
         dice2.startAnimation(anim2);
+
+        RandomDice();
         //Length of the vibrate.
         vibrator.vibrate(80);
 
@@ -108,9 +110,7 @@ public class MainActivity extends AppCompatActivity {
             //onAnimationEnd since we want to see the result AFTER the animation.
             @Override
             public void onAnimationEnd(Animation animation) {
-                if (dice2anim == true && dice2anim == true) {
-                    RandomDice(animation, anim1, anim2);
-                }
+
             }
 
             @Override
@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
         };
     }
 
-    public void RandomDice(Animation animation, Animation anim1, Animation anim2) {
+    public void RandomDice() {
 
 
         int diceNumber1 = randomDiceValue();
@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
             dice1.setImageResource(newRandomDice1);
             dice2.setImageResource(newRandomDice2);
 
-        int[] a = {diceNumber1, diceNumber2};
+        Integer[] a = {diceNumber1, diceNumber2};
         diceList.add(new BERoll(Calendar.getInstance().getTime(), a));
 
         Log.i("rollingDices_", "#############");

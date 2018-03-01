@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -31,8 +32,7 @@ public class RollListAdapter extends RecyclerView.Adapter<RollListAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.rollResultText.setText(diceList.get(position).getmEyes().toString());
-// holder.rollResultText.setText(diceList.get((diceList.size()-1)).getmEyes().toString());
+        holder.rollResultText.setText(diceList.get(position).getTime().toString() + " " + Arrays.toString(diceList.get(position).getmEyes()));
     }
 
     @Override
