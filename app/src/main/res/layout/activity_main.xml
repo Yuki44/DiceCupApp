@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,48 +8,133 @@
     tools:context="com.easv.yuki.dicecupapp.MainActivity">
 
     <LinearLayout
-        android:id="@+id/diceView"
-        android:layout_width="320dp"
-        android:layout_height="220dp"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:scaleType="fitCenter">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/dice1"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_marginRight="20dp"
-            android:src="@drawable/dice1" />
+        <LinearLayout
+            android:id="@+id/diceView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:scaleType="fitCenter">
 
-        <ImageView
-            android:id="@+id/dice2"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:src="@drawable/dice2" />
+            <ImageView
+                android:id="@+id/dice1"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginRight="20dp"
+                android:padding="15dp"
+                android:src="@drawable/dice1" />
+
+            <ImageView
+                android:id="@+id/dice2"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:clickable="true"
+                android:onClick="imageClick"
+                android:padding="15dp"
+                android:src="@drawable/dice2" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/diceView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:scaleType="fitCenter">
+
+            <ImageView
+                android:id="@+id/dice3"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginRight="20dp"
+                android:clickable="true"
+                android:onClick="imageClick"
+                android:padding="15dp"
+                app:srcCompat="@drawable/dice3" />
+
+            <ImageView
+                android:id="@+id/dice4"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:clickable="true"
+                android:onClick="imageClick"
+                android:padding="15dp"
+                app:srcCompat="@drawable/dice4" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/diceView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:scaleType="fitCenter">
+
+            <ImageView
+                android:id="@+id/dice5"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginRight="20dp"
+                android:clickable="true"
+                android:onClick="imageClick"
+                android:padding="15dp"
+                app:srcCompat="@drawable/dice5" />
+
+            <ImageView
+                android:id="@+id/dice6"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:clickable="true"
+                android:onClick="imageClick"
+                android:padding="15dp"
+                app:srcCompat="@drawable/dice6" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rollBtnView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
+            android:layout_marginTop="40dp"
+            android:gravity="bottom|center_vertical|center"
+            android:orientation="vertical"
+            android:scaleType="fitCenter">
+
+            <Button
+                android:id="@+id/rollDiceBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:text="Roll Dices!"
+                android:textAlignment="center"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/historyButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/nunito_semibold"
+                android:text="History of Rolls" />
+
+        </LinearLayout>
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/rollDiceBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="61dp"
-        android:text="Roll Dices!"
-        android:textAlignment="center"
-        android:textSize="24sp" />
-
-    <Button
-        android:id="@+id/historyButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/nunito_semibold"
-        android:text="History of Rolls" />
 
 
 </RelativeLayout>

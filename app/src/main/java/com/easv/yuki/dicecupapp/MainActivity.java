@@ -12,6 +12,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<BERoll> diceList = new ArrayList<>();
     private Button rollDiceBtn;
     private Button historyButton;
-    private ImageView dice1, dice2;
+    private ImageView dice1, dice2, dice3, dice4, dice5, dice6;
     private RollListAdapter rollListAdapter;
     private Date currentTime;
     private boolean dice1anim = false;
@@ -46,15 +47,20 @@ public class MainActivity extends AppCompatActivity {
         diceList = new ArrayList<>();
         rollListAdapter = new RollListAdapter(diceList);
 
-//        mDiceList = (RecyclerView) findViewById(R.id.dice_list);
-//        mDiceList.setHasFixedSize(true);
-//        mDiceList.setLayoutManager(new LinearLayoutManager(this));
-//        mDiceList.setAdapter(rollListAdapter);
-
-
-        rollDiceBtn = findViewById(R.id.rollDiceBtn);
         dice1 = findViewById(R.id.dice1);
         dice2 = findViewById(R.id.dice2);
+        dice3 = findViewById(R.id.dice3);
+        dice4 = findViewById(R.id.dice4);
+        dice5 = findViewById(R.id.dice5);
+        dice6 = findViewById(R.id.dice6);
+
+        final ImageView[] levelsArray = {dice1, dice2, dice3, dice4, dice5, dice6};
+
+//        for(int i = 0; i < 6; i++) {
+//            levelsArray[i].setOnClickListener(this);
+//        }
+
+        rollDiceBtn = findViewById(R.id.rollDiceBtn);
         vibrator = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
 
         historyButton = findViewById(R.id.historyButton);
@@ -75,6 +81,20 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void imageClick(View view) {
+        //Implement image click function
+        Toast.makeText(MainActivity.this, "You clicked on ImageView", Toast.LENGTH_LONG).show();
+
+//        switch (view) {
+//            case dice1:
+//                dice1.setColorFilter(Color.rgb(205,205,205));
+//                break;
+//            case level002:
+//                level_selected = "level002";
+//                break;
+//        }
+
+    }
     private void doAnimation() {
 
         //Animation shake from anim folder. (anim folder is being used for animations).
