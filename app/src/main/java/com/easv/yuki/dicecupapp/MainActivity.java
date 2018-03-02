@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private boolean dice4Enabled = true;
     private boolean dice5Enabled = true;
     private boolean dice6Enabled = true;
+    private ImageView closeButton;
 
 
     private static int randomDiceValue() {
@@ -49,6 +50,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        closeButton = findViewById(R.id.closeButton);
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         diceList = new ArrayList<>();
         rollListAdapter = new RollListAdapter(diceList);
@@ -227,6 +234,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Integer[] a = {diceNumber1, diceNumber2};
         diceList.add(new BERoll(Calendar.getInstance().getTime(), a));
+
 
         Log.i("rollingDices_", "#############");
         Log.i("rollingDices",

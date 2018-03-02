@@ -4,8 +4,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Button;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 
@@ -15,7 +16,7 @@ public class HistoryActivity extends AppCompatActivity {
     private RecyclerView mDiceList;
     private RollListAdapter rollListAdapter;
     private Button clearButton;
-    private Button backButton;
+    private ImageView backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,7 @@ public class HistoryActivity extends AppCompatActivity {
                 finish();
             }
         });
+
 
         diceList = (ArrayList<BERoll>) getIntent().getSerializableExtra("dicelist");
         rollListAdapter = new RollListAdapter(diceList);

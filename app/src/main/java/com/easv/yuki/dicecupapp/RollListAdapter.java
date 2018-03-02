@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -20,7 +21,7 @@ public class RollListAdapter extends RecyclerView.Adapter<RollListAdapter.ViewHo
     public RollListAdapter(List<BERoll> diceList) {
 
         this.diceList = diceList;
-
+        Collections.reverse(diceList);
     }
 
     @Override

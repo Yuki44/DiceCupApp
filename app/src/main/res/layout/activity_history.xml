@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fff"
     tools:context="com.easv.yuki.dicecupapp.HistoryActivity">
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:background="#fff"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        android:paddingTop="60dp">
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:clipToPadding="false">
+            android:background="#fff">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:background="#fff"
                 android:orientation="vertical">
 
@@ -33,31 +39,41 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/clearButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="41dp"
-        android:elevation="0dp"
-        android:fontFamily="@font/nunito_semibold"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:scaleType="fitCenter"
-        android:text="Clear"
-        android:textSize="18sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/backButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="54dp"
-        android:fontFamily="@font/nunito_semibold"
-        android:text="BACK"
-        android:textSize="18sp" />
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            app:srcCompat="@drawable/back" />
+
+        <Button
+            android:id="@+id/clearButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_corners"
+            android:elevation="0dp"
+            android:fontFamily="@font/nunito_semibold"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:scaleType="fitCenter"
+            android:text="Clear"
+            android:textSize="18sp" />
+    </LinearLayout>
 
 
 </RelativeLayout>

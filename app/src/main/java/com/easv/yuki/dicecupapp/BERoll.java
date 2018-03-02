@@ -47,7 +47,7 @@ public class BERoll implements Serializable {
         Integer dayHour = calendar.get(Calendar.HOUR_OF_DAY); // gets hour in 24h format
         Integer minute = calendar.get(Calendar.MINUTE);        // gets hour in 12h format
         Integer second = calendar.get(Calendar.SECOND);        // gets hour in 12h format
-        String finalHour = dayHour + " : " + minute + " : " + second + "  > ";
+        String finalHour = dayHour + ":" + minute + ":" + second + "  > ";
         return finalHour.toString();
     }
 
