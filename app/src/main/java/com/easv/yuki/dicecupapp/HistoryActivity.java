@@ -18,6 +18,7 @@ public class HistoryActivity extends AppCompatActivity {
     private Button clearButton;
     private ImageView backButton;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,12 +26,6 @@ public class HistoryActivity extends AppCompatActivity {
 
         clearButton = findViewById(R.id.clearButton);
         backButton = findViewById(R.id.backButton);
-
-        clearButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                mDiceList.setAdapter(null);
-            }
-        });
 
         backButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -40,6 +35,19 @@ public class HistoryActivity extends AppCompatActivity {
 
 
         diceList = (ArrayList<BERoll>) getIntent().getSerializableExtra("dicelist");
+
+
+        clearButton.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                MainActivity.diceList.clear();
+                diceList.clear();
+                rollListAdapter.notifyDataSetChanged();
+
+            }
+        });
+
+
         rollListAdapter = new RollListAdapter(diceList);
 
         mDiceList = findViewById(R.id.dice_list);
@@ -47,4 +55,6 @@ public class HistoryActivity extends AppCompatActivity {
         mDiceList.setLayoutManager(new LinearLayoutManager(this));
         mDiceList.setAdapter(rollListAdapter);
     }
+
+
 }

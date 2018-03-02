@@ -101,6 +101,7 @@
                 android:clickable="true"
                 android:padding="15dp"
                 app:srcCompat="@drawable/dice6" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -113,6 +114,17 @@
             android:gravity="bottom|center_vertical|center"
             android:orientation="vertical"
             android:scaleType="fitCenter">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/nunito_semibold"
+                android:text="Hint: Tap the dices!"
+                android:textAlignment="center"
+                android:textColor="?attr/colorAccent"
+                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/rollDiceBtn"
@@ -157,6 +169,7 @@
             android:layout_weight="1"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
+            android:elevation="16dp"
             app:srcCompat="@drawable/cross" />
     </LinearLayout>
 

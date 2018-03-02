@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -15,25 +14,19 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    //    private RecyclerView mDiceList;
+    final public static ArrayList<BERoll> diceList = new ArrayList<>();
     private static final Random RANDOM = new Random();
     public Vibrator vibrator;
-    //    private RecyclerView mDiceList;
-    ArrayList<BERoll> diceList = new ArrayList<>();
     private Button rollDiceBtn;
     private Button historyButton;
     private ImageView[] dices;
     private RollListAdapter rollListAdapter;
-    private Date currentTime;
-    //    private boolean dice_state_clicked = false;
-//    private HashMap<Integer, Boolean> dices_hashMap = new HashMap<Integer, Boolean>();
     private boolean[] diceEnabled;
     private ImageView closeButton;
 
@@ -53,7 +46,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        diceList = new ArrayList<>();
         rollListAdapter = new RollListAdapter(diceList);
         int[] ids = {R.id.dice1, R.id.dice2, R.id.dice3, R.id.dice4, R.id.dice5, R.id.dice6};
 
@@ -65,7 +57,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             dices[i].setOnClickListener(this);
 
             diceEnabled[i] = true;
-//            dices_hashMap.put(levelsArray[i].getId(), dice_state_clicked);
         }
 
         rollDiceBtn = findViewById(R.id.rollDiceBtn);
@@ -87,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 doAnimation();
             }
         });
+
     }
 
     @Override
@@ -100,15 +92,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         diceEnabled[idx] = !diceEnabled[idx];
     }
 
-    private void changeDice(ImageView imageView, boolean diceState) {
-        if (diceState) {
-            imageView.setColorFilter(Color.rgb(240, 240, 240));
-            diceState = false;
-        } else {
-            imageView.setColorFilter(Color.rgb(38, 38, 38));
-            diceState = true;
-        }
-    }
+//    private void changeDice(ImageView imageView, boolean diceState) {
+//        if (diceState) {
+//            imageView.setColorFilter(Color.rgb(240, 240, 240));
+//            diceState = false;
+//        } else {
+//            imageView.setColorFilter(Color.rgb(38, 38, 38));
+//            diceState = true;
+//        }
+//    }
 
     private void doAnimation() {
 
@@ -169,30 +161,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         for (int i = 0; i < 6; i++) {
-            if(diceNumber[i] != 0) onlyRolledCount ++;
+            if (diceNumber[i] != 0) onlyRolledCount++;
         }
 
         int[] rolledDices = new int[onlyRolledCount];
 
-               for (int i = 0; i < 6; i++) {
-                  if (diceNumber[i] != 0) {
-                      rolledDices[count] = diceNumber[i];
-                      count++;
-                      }
-                  }
+        for (int i = 0; i < 6; i++) {
+            if (diceNumber[i] != 0) {
+                rolledDices[count] = diceNumber[i];
+                count++;
+            }
+        }
 
         diceList.add(new BERoll(Calendar.getInstance().getTime(), rolledDices));
-
-        Log.i("rollingDices_", "#############");
-        Log.i("rollingDices",
-                "    " + diceNumber.toString()
-                        +
-                        diceList.get(diceList.size() - 1).mTime);
 
         rollListAdapter.notifyDataSetChanged();
     }
 
-
+    public void clearList() {
+        diceList.clear();
+    }
 
     int getImageId(int eyes) {
         return getResources().getIdentifier("dice" + eyes, "drawable", "com.easv.yuki.dicecupapp");

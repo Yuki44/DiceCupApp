@@ -18,6 +18,7 @@ public class RollListAdapter extends RecyclerView.Adapter<RollListAdapter.ViewHo
 
     public List<BERoll> diceList;
 
+
     public RollListAdapter(List<BERoll> diceList) {
 
         this.diceList = diceList;
@@ -34,7 +35,9 @@ public class RollListAdapter extends RecyclerView.Adapter<RollListAdapter.ViewHo
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.rollResultText.setText(diceList.get(position).getTime().toString() + " " + Arrays.toString(diceList.get(position).getmEyes()));
+
     }
+
 
     @Override
     public int getItemCount() {
@@ -54,4 +57,5 @@ public class RollListAdapter extends RecyclerView.Adapter<RollListAdapter.ViewHo
             rollResultText = mView.findViewById(R.id.roll_result_text);
         }
     }
+
 }
