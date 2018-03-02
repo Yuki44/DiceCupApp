@@ -12,13 +12,13 @@ import java.util.GregorianCalendar;
 public class BERoll implements Serializable {
 
     Date mTime;
-    Integer[] mEyes;
+    int[] mEyes;
 
     public BERoll() {
 
     }
 
-    public BERoll(Date t, Integer[] e) {
+    public BERoll(Date t, int[] e) {
         mTime = t;
         mEyes = e;
     }
@@ -31,11 +31,11 @@ public class BERoll implements Serializable {
         this.mTime = mTime;
     }
 
-    public Integer[] getmEyes() {
+    public int[] getmEyes() {
         return mEyes;
     }
 
-    public void setmEyes(Integer[] mEyes) {
+    public void setmEyes(int[] mEyes) {
         this.mEyes = mEyes;
     }
 
