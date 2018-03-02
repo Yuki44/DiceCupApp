@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView closeButton;
 
 
+
     private static int randomDiceValue() {
         //Number from 1-6
         return RANDOM.nextInt(6) + 1;
@@ -158,12 +159,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         int[] diceNumber = new int[6];
+//        ArrayList<Integer> rolledDices = new ArrayList<Integer>();
         for (int i = 0; i < 6; i++) {
             int idx = (Integer) dices[i].getTag();
             if (diceEnabled[idx]) {
                 diceNumber[i] = randomDiceValue();
                 dices[i].setImageResource(getImageId(diceNumber[i]));
+//                rolledDices.add(diceNumber[i]);
             }
+
         }
 
         diceList.add(new BERoll(Calendar.getInstance().getTime(), diceNumber));
